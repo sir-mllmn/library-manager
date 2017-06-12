@@ -1,0 +1,6 @@
+server:
+  port: 8000
+
+application:
+  view-name: Library Manager Application
+  library-name: Pet-project library
