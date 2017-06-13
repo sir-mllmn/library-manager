@@ -3,4 +3,5 @@ server:
 
 application:
   view-name: Library Manager Application
+  search-service-url: http://localhost:8001/statistic
   library-name: Pet-project library

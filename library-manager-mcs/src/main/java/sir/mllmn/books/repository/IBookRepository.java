@@ -1,6 +1,6 @@
-package sir.mllmn.library.repository;
+package sir.mllmn.books.repository;
 
-import sir.mllmn.library.domain.Book;
+import sir.mllmn.books.domain.Book;
 
 import java.util.List;
 

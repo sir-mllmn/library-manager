@@ -1,4 +1,4 @@
-package sir.mllmn.library.domain;
+package sir.mllmn.books.domain;
 
 public class Search {
 

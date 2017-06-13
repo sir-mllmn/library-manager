@@ -1,9 +1,9 @@
-package sir.mllmn.library.repository;
+package sir.mllmn.books.repository;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
-import sir.mllmn.library.domain.Book;
-import sir.mllmn.library.domain.Search;
+import sir.mllmn.books.domain.Book;
+import sir.mllmn.books.domain.Search;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
@@ -21,8 +21,6 @@ public class InMemoryBookRepository implements IBookRepository {
 	private final Map<Integer, Book> books;
 
 	private int bookIdCounter;
-
-	private int searchIdCounter;
 
 	public InMemoryBookRepository() {
 		books = init();
@@ -45,28 +43,9 @@ public class InMemoryBookRepository implements IBookRepository {
 		return new ArrayList<>(books.values());
 	}
 	
-	private void addHit(Book book) {
-		Search search = new Search();
-		search.setBrowser("Chrome");
-		try {
-			search.setIp(InetAddress.getLocalHost().getHostName());
-		} catch (UnknownHostException e) {
-			e.printStackTrace();
-		}
-		search.setUserName(System.getProperty("user.name"));
-		search.setApplicationName(APP_NAME);
-		search.setId(++searchIdCounter);
-		book.getSearches().add(search);
-	}
-
 	@Override
 	public Book findBookById(int id) {
-		Book book =  books.get(id);
-		if(book != null) {
-			addHit(book);
-		}
-		
-		return book;
+		return books.get(id);
 	}
 
 	@Override
