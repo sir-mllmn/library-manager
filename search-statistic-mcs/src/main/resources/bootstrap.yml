@@ -1,3 +1,6 @@
 spring:
   application:
     name: search-statistic-app
+  cloud:
+    config:
+      uri: http://localhost:8010
