@@ -8,15 +8,10 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
-
-	<artifactId>config-server-mcs</artifactId>
+	<artifactId>eureka-server-mcs</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
 	<dependencies>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-config-server</artifactId>
-		</dependency>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-eureka-server</artifactId>

@@ -73,6 +73,7 @@
         <module>library-manager-mcs</module>
         <module>search-statistic-mcs</module>
         <module>config-server-mcs</module>
+        <module>eureka-server-mcs</module>
     </modules>
 
 </project>
