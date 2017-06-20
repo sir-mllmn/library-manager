@@ -74,6 +74,7 @@
         <module>search-statistic-mcs</module>
         <module>config-server-mcs</module>
         <module>eureka-server-mcs</module>
+        <module>instance-manager-mcs</module>
     </modules>
 
 </project>
