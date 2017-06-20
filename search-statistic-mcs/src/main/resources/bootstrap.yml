@@ -3,4 +3,11 @@ spring:
     name: search-statistic-app
   cloud:
     config:
-      uri: http://localhost:8010
+      discovery:
+        service-id: config-server-app
+        enabled: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8020/eureka
