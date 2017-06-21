@@ -13,3 +13,4 @@ public class SearchStatisticMcsApplication {
 		SpringApplication.run(SearchStatisticMcsApplication.class, args);
 	}
 }
+I
