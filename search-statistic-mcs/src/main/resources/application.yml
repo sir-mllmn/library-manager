@@ -1,2 +1,9 @@
+spring:
+  profiles: instance1
 server:
   port: 8001
+---
+spring:
+  profiles: instance2
+server:
+  port: 8002
