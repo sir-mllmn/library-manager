@@ -1,2 +1,5 @@
 server:
   port: 8000
+search-statistic-app:
+  ribbon:
+    ServerListRefreshInterval: 15000
