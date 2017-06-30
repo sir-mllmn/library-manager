@@ -3,10 +3,8 @@ package sir.mllmn.books.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.RestTemplate;
-import sir.mllmn.books.client.UriFactory;
+import sir.mllmn.books.client.SearchStatisticClient;
 import sir.mllmn.books.domain.Book;
 import sir.mllmn.books.domain.Search;
 import sir.mllmn.books.repository.IBookRepository;
@@ -30,10 +28,7 @@ public class BookController {
     private IBookRepository bookRepository;
 
     @Autowired
-    private RestTemplate restTemplate;
-
-    @Autowired
-    private UriFactory uriFactory;
+    private SearchStatisticClient searchStatisticClient;
 
     @GetMapping("/info")
     public String getLibraryName() {
@@ -55,8 +50,8 @@ public class BookController {
             search.setUserName(System.getProperty("user.name"));
             search.setApplicationName(appName);
             search.setIp(resolveHostName());
-            ResponseEntity<Search> responseEntity = restTemplate.postForEntity(uriFactory.getSearchServiceUri(), search, Search.class);
-            bookById.getSearches().add(responseEntity.getBody());
+            Search resolvedSearch = searchStatisticClient.findSearch(search);
+            bookById.getSearches().add(resolvedSearch);
         }
         return bookById;
     }
