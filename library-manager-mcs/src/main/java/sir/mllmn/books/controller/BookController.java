@@ -37,12 +37,12 @@ public class BookController {
 
     @GetMapping
     public List<Book> getBooks() {
-        return bookRepository.getBooks();
+        return bookRepository.findAll();
     }
 
     @GetMapping("/{id}")
     public Book getBook(@PathVariable int id) {
-        Book bookById = bookRepository.findBookById(id);
+        Book bookById = bookRepository.findById(id);
         if (bookById != null) {
             Search search = new Search();
             search.setBookId(id);
@@ -51,7 +51,7 @@ public class BookController {
             search.setApplicationName(appName);
             search.setIp(resolveHostName());
             Search resolvedSearch = searchStatisticClient.findSearch(search);
-            bookById.getSearches().add(resolvedSearch);
+            //todo implement for cassandra one to many
         }
         return bookById;
     }
@@ -68,12 +68,12 @@ public class BookController {
 
     @PostMapping
     public void saveBook(@RequestBody Book book) {
-        bookRepository.saveBook(book);
+        bookRepository.save(book);
     }
 
     @PutMapping
     public void updateBook(@RequestBody Book book) {
-        bookRepository.saveBook(book);
+        bookRepository.save(book);
     }
 
 }
