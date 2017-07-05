@@ -3,3 +3,6 @@ server:
 search-statistic-app:
   ribbon:
     ServerListRefreshInterval: 15000
+management:
+  security:
+    enabled: false

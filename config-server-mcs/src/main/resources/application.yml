@@ -4,6 +4,8 @@ spring:
       server:
         git:
           uri: https://github.com/sir-mllmn/config
+    bus:
+      enabled: true
 server:
   port: 8010
 
@@ -11,3 +13,7 @@ eureka:
   client:
     service-url:
       defaultZone: http://peer1:8020/eureka, http://peer2:8021/eureka
+
+management:
+  security:
+    enabled: false
