@@ -1,9 +1,12 @@
 package sir.mllmn.books.domain;
 
-import java.util.ArrayList;
-import java.util.List;
+import org.springframework.data.cassandra.mapping.PrimaryKey;
+import org.springframework.data.cassandra.mapping.Table;
 
+@Table("books")
 public class Book {
+
+	@PrimaryKey
 	private int id;
 	
 	private String name;
@@ -11,8 +14,16 @@ public class Book {
 	private int year;
 	
 	private int pages;
-	
-	private List<Search> searches = new ArrayList<>();
+
+	public Book(){}
+
+	public Book(int id, String name, int year, int pages) {
+		this.id = id;
+		this.name = name;
+		this.year = year;
+		this.pages = pages;
+	}
+
 
 	public int getId() {
 		return id;
@@ -46,12 +57,4 @@ public class Book {
 		this.pages = pages;
 	}
 
-	public List<Search> getSearches() {
-		return searches;
-	}
-
-	public void setSearches(List<Search> searches) {
-		this.searches = searches;
-	}
-	
 }

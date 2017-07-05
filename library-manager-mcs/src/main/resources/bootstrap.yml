@@ -6,6 +6,9 @@ spring:
       discovery:
         service-id: config-server-app
         enabled: true
+  data:
+    cassandra:
+      keyspace-name: librarykeyspace
 
 eureka:
   client:
