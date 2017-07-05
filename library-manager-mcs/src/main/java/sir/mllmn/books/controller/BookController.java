@@ -2,6 +2,7 @@ package sir.mllmn.books.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.web.bind.annotation.*;
 import sir.mllmn.books.client.SearchStatisticClient;
@@ -16,6 +17,7 @@ import java.util.List;
 @RestController
 @RequestMapping("book")
 @EnableEurekaClient
+@RefreshScope
 public class BookController {
 
     @Value("${application.view-name}")
